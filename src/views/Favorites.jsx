@@ -1,8 +1,27 @@
+import { useContext } from "react";
+import { MyContext } from "../context/MyContext";
+import IconHeart from "../components/IconHeart";
+
 const Favorites = () => {
+  const { data } = useContext(MyContext)
+
+  const favoritePhotos = data.photos.filter((photo) => photo.liked)
+
   return (
     <div>
       <h1>Fotos favoritas</h1>
-      <div className="p-3 gallery grid-columns-4"></div>
+      <div className="p-3 gallery grid-columns-4">
+        {
+          favoritePhotos.map((photo, index) => {
+            return (
+            <div key={index}>
+              <IconHeart filled={true}/>
+              <img src={photo.src.tiny} alt={photo.alt}/>
+              <p>{photo.alt}</p>
+            </div>
+          )})
+        }
+      </div>
     </div>
   );
 };

@@ -3,12 +3,11 @@ import Navbar from "./components/Navbar";
 
 import Favorites from "./views/Favorites";
 import Home from "./views/Home";
-
-const PHOTO_URL = "/photos.json";
+import MyContextProvider from "./context/MyContext";
 
 const App = () => {
   return (
-    <div>
+    <MyContextProvider>
       <Navbar />
 
       <Routes>
@@ -21,7 +20,7 @@ const App = () => {
           element={<Favorites />}
         />
       </Routes>
-    </div>
+    </MyContextProvider>
   );
 };
 export default App;
