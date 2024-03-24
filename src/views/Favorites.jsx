@@ -15,9 +15,7 @@ const Favorites = () => {
           favoritePhotos.map((photo, index) => {
             return (
             <div key={index}>
-              <IconHeart filled={true}/>
               <img src={photo.src.tiny} alt={photo.alt}/>
-              <p>{photo.alt}</p>
             </div>
           )})
         }
